@@ -1,0 +1,103 @@
+.header-content {
+    width: 1512px;
+    height: 80px;
+    background-color: #000000;
+    position: relative;
+    margin: 0 auto;
+}
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    transform: translateY(-50%);
+    width: 370px;
+    height: 30px;
+}
+
+.search-form {
+    position: absolute;
+    left: 470px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+}
+
+.search-form input {
+    width: 100%;
+    height: 50%;
+    padding: 0 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+
+.sell-button {
+    position: absolute;
+    left: 1370px;
+    top: 50px;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 50px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.content {
+    background-color: #FFFFFF;
+    width: 1512px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1032px) {
+    .header-content {
+        width: 100%;
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        width: 300px;
+        height: 40px;
+    }
+
+    .sell-button {
+        width: 90px;
+        height: 45px;
+    }
+
+    .content {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media(max-width: 767px) {
+    .header-content {
+        width: 100%;
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .logo {
+        width: 200px;
+        height: 30px;
+    }
+
+    .sell-button {
+        width: 80px;
+        height: 40px;
+    }
+
+    .content {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+
+
