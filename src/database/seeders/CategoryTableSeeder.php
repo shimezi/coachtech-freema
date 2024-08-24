@@ -9,7 +9,8 @@ class CategoryTableSeeder extends Seeder
 {
     public function run()
     {
-        Category::factory(5)->create();
+        Category::create(['name' => '洋服']);
+        Category::create(['name' => 'メンズ']);
     }
 }
 

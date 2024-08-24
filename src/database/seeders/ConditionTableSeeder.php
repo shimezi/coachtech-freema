@@ -14,6 +14,6 @@ class ConditionTableSeeder extends Seeder
      */
     public function run()
     {
-        Condition::factory(4)->create();
+        Condition::create(['condition' => '良好']);
     }
 }

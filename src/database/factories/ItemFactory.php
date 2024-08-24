@@ -18,11 +18,11 @@ class ItemFactory extends Factory
 
         return [
             'name' => 'ブランド名',
-            'price' => '47,000',
-            'description' => '商品説明',
-            'img_url' => 'https://via.placeholder.com/640x480.png',
-            'user_id' => $user ? $user->id : User::factory()->create()->id,
-            'condition_id' => $condition ? $condition->id : Condition::factory()->create()->id,
+            'price' => '47000',
+            'description' => '<p>カラー : グレー</p><P>新品</P><p>商品の状態は良好です。傷もありません。</p><p>購入後、即発送いたします。</p>',
+            'img_url' => asset('storage/items/dummy.png'),
+            'user_id' => 1,
+            'condition_id' => 1,
         ];
     }
 }

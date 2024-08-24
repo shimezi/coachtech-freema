@@ -9,6 +9,6 @@ class ItemTableSeeder extends Seeder
 {
     public function run()
     {
-        Item::factory(30)->create();
+        Item::factory(10)->create();
     }
 }

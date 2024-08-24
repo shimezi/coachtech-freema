@@ -12,7 +12,7 @@
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo">
-                <img src="{{ asset('images/logo.svg" alt="Logo">
+                <img src="{{ asset('images/logo.svg') }}" alt="Logo">
             </a>
             <form class="search-form">
                 <input type="text" placeholder="何なにをお探しですか？">
