@@ -93,6 +93,38 @@
         height: 40px;
     }
 
+    .logout-button {
+        background-color: yellow;
+        border: none;
+        cursor: pointer;
+        color: black;
+        font-size: 16px;
+        padding: 0;
+        display: block;
+    }
+
+    .logout-button:hover {
+        text-decoration: underline;
+    }
+
+    .mypage-button {
+        background-color: yellow;
+        color: black;
+        display: block;
+    }
+
+    .login-button {
+        background-color: yellow;
+        color: #000000;
+        display: block;
+    }
+
+    .register-button {
+        background-color: yellow;
+        color: black;
+        display: block;
+    }
+
     .content {
         width: 100%;
         padding: 10px;

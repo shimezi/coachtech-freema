@@ -38,9 +38,19 @@ class Item extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function getCommentsCountAttribute()
+    {
+        return $this->comments()->count();
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function getLikesCountAttribute()
+    {
+        return $this->likes()->count();
     }
 
     public function soldItem()
