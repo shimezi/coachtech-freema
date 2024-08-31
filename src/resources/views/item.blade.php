@@ -25,21 +25,18 @@
                 <p class="like-count">{{ $item->likes_count }}</p>
             </div>
             <div class="comment-section">
-                <form action="{{ route('comments.store', $item->id) }}" method="POST">
-                    @csrf
-                    @auth
+                <!-- コメントボタンとコメント数 -->
+                <div class="comment-buttn_container">
+                    <form action="{{ route('comments.showForm', ['id' => $item->id]) }}" method="POST">
+                        @csrf
                         <button type="submit" class="comment-button">
                             <i class="fa-regular fa-comment"></i>
                         </button>
-                    @else
-                        <a href="{{ route('login') }}" class="comment-button">
-                            <i class="fa-regular fa-comment"></i>
-                        </a>
-                    @endauth
-                </form>
-                <p class="comments-count">{{ $item->comments_count }}</p>
+                    </form>
+                    <p class="comment-count">{{ $item->comments_count }}</p>
+                </div>
                 <!-- コメントの履歴 -->
-                <div class="comennts-history">
+                <div class="comment-history">
                     @foreach ($item->comments as $comment)
                         <div class="comment">
                             <p><strong>{{ $comment->user->name }}</strong>さんのコメント</p>
@@ -49,20 +46,13 @@
                 </div>
                 <!-- コメントフォーム -->
                 @auth
-                @if (session('show_comment-form'))
-                    <form action="{{ route('comments.store', $item->id) }}" method="POST" id="comment-form">
-                        @csrf
-                        <p>商品へのコメント</p>
-                        <textarea name="comment" rows="4"></textarea>
-                        <button type="submit" class="submit_comment-button">コメントを送信する</button>
-                    </form>
-                    @else
-                    <form action="{{ route('comments.showForm', ['id' => $item->id]) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="comment-button">
-                            <i class="fa-regular fa-comment"></i>
-                        </button>
-                    </form>
+                    @if (session('show_comment-form'))
+                        <form action="{{ route('comments.store', $item->id) }}" method="POST">
+                            @csrf
+                            <p>商品へのコメント</p>
+                            <textarea name="comment" rows="4"></textarea>
+                            <button type="submit" class="submit_comment-button">コメントを送信する</button>
+                        </form>
                     @endif
                     @else
                     <a href="{{ route('login') }}" class="comment-button">
