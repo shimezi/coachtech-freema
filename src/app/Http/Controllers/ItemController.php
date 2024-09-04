@@ -19,5 +19,12 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         return view('item', compact('item'));
     }
+
+    public function sell()
+    {
+        $item =Item->sell();
+
+        return view('sell', compact('sell'));
+    }
 }
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,10 @@ Route::get('/items/{id}', [ItemController::class, 'show'])->name('item.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
+    Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/items/{id}/like', [LikeController::class, 'likeButton'])->name('item.like');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/comments/form/{id}', [CommentController::class, 'showForm'])->name('comments.showForm');
+    Route::post('/sell', [ItemController::class, 'sell'])->name('sell');
 });

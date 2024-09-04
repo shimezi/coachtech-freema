@@ -23,12 +23,12 @@
                 <input type="text" placeholder="何なにをお探しですか？">
             </form>
 
-            <a href="/sell" class="sell-button">出品</a>
+            <a href="{{ route('sell') }}" class="sell-button">出品</a>
 
             @auth
                 <form action="{{ route('logout') }}" method="POST" class="logout-form">
                     @csrf
-                    <button type="submit" class="logour-button">ログアウト</button>
+                    <button type="submit" class="logout-button">ログアウト</button>
                 </form>
                 <a href="{{ route('mypage') }}" class="mypage-button">マイページ</a>
             @endauth
