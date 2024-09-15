@@ -28,5 +28,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/items/{id}/like', [LikeController::class, 'likeButton'])->name('item.like');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/comments/form/{id}', [CommentController::class, 'showForm'])->name('comments.showForm');
-    Route::post('/sell', [ItemController::class, 'sell'])->name('sell');
+    Route::get('/sell/create', [ItemController::class, 'createSell'])->name('sell.create');
+    Route::post('/sell/store', [ItemController::class, 'storeSell'])->name('sell.store');
+    Route::get('purchase/create{id}', [ItemController::class, 'createPurchase'])->name('purchase.create');
+    Route::post('/purchase/store/{id}', [ItemController::class, 'storePurchase'])->name('purchase.store');
+    //Route::get('/purchase/address/{id}', [ItemController::class, 'address'])->name('purchase.address');
+    //Route::post('/purchase/address/{id}', [ItemController::class, 'storeAddress'])->name('purchase.address.different');
+    //Route::get('/purchase/payment/{id}', [ItemController::class, 'payment'])->name('purchase.payment');
+    //Route::post('/purchase/payment/{id}', [ItemController::class, 'storePayment'])->name('purchase.payment');
 });

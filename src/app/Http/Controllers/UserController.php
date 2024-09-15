@@ -12,8 +12,15 @@ class UserController extends Controller
         $user = auth()->user();
         $profile = $user->profile;
 
-        $soldItems = $user->sold;
-        $purchasedItems = $user->purchases;
+        // 出品した商品を取得
+        $soldItems = $user->soldItems->map(function ($soldItem) {
+            return $soldItem->item;
+        });
+
+        // 購入した商品を取得
+        $purchasedItems = $user->soldItems->map(function ($soldItem) {
+            return $soldItem->item;
+        });
 
         return view('mypage', compact('profile', 'soldItems', 'purchasedItems'));
     }

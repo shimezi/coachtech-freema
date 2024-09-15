@@ -23,4 +23,5 @@ class SoldItem extends Model
     {
         return $this->belongsTo(Item::class);
     }
+
 }

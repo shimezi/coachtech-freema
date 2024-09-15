@@ -23,7 +23,7 @@
                 <input type="text" placeholder="何なにをお探しですか？">
             </form>
 
-            <a href="{{ route('sell') }}" class="sell-button">出品</a>
+            <a href="{{ route('sell.create') }}" class="sell-button">出品</a>
 
             @auth
                 <form action="{{ route('logout') }}" method="POST" class="logout-form">

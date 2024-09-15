@@ -53,8 +53,8 @@ class Item extends Model
         return $this->likes()->count();
     }
 
-    public function soldItem()
+    public function soldItems()
     {
-        return $this->hasOne(SoldItem::class);
+        return $this->hasMany(SoldItem::class);
     }
 }

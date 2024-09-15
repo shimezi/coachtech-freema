@@ -60,6 +60,15 @@
                     </a>
                 @endauth
             </div>
+           <!-- 購入ボタン -->
+           @auth
+               <form action="{{ route('purchase.create', ['id' => $item->id]) }}" method="GET">
+                @csrf
+                <button type="submit" class="purchase-button">購入する</button>
+               </form>
+               @else
+                   <a href="{{ route('login') }}" class="purchase-button">購入する</a>
+           @endauth 
             <h2>商品説明</h2>
             <p>{!! $item->description !!}</p>
             <h2>商品の情報</h2>
@@ -68,7 +77,7 @@
                     {{ $category->name }}
                 @endforeach
             </p>
-            <p>商品の状態 {{ $item->condition->condition }}</p>
+            <p>商品の状態 {{ $item->condition ? $item->condition->name : '状態情報がありません' }}</p>
         </div>
     </div>
 @endsection
