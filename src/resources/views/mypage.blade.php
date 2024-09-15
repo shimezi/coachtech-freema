@@ -36,6 +36,17 @@
         @if (request()->is('mypage/profile'))
             <div id="profile_edit-form">
                 <h3>プロフィール編集</h3>
+                <!-- エラーメッセージ表示部分 -->
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                    
+                @endif
                 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="profile-form_group">

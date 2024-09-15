@@ -87,8 +87,8 @@ class ItemController extends Controller
 
         if (!$profile) {
             // プロフィールが存在しない場合の処理
-            // 例: エラーメッセージを設定し、リダイレクトする
-            return redirect()->back()->withErrors(['profile' => 'プロフィール情報がありません。']);
+            return redirect()->route('profile.edit') // プロフィール登録フォームのルート
+            ->withErrors(['profile' => '商品を購入するにはプロフィールを登録してください。']);
         }
 
         // 購入処理を実行
