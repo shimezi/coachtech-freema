@@ -6,8 +6,21 @@
 
 @section('content')
     <div class="container">
+        <!-- タブ表示 -->
+        <div class="tabs">
+            <ul class="tab-links">
+                <li class="{{ request()->routeIs('mypage.soldProducts') ? 'active' : '' }}">
+                    <a href="{{ route('mypage.soldProducts') }}">出品した商品</a>
+                </li>
+            </ul>
+            <ul class="tab-links">
+                <li class="{{ request()->routeIs('mypage.purchasedProducts') ? 'active' : '' }}">
+                    <a href="{{ route('mypage.purchasedProducts') }}">購入した商品</a>
+                </li>
+            </ul>
+        </div>
         <!-- マイページ表示部分 -->
-        @if (request()->is('mypage'))
+        @if (request()->routeIs('mypage'))
             <!-- ユーザー情報エリア -->
 
             <div class="user-info">
@@ -33,7 +46,7 @@
             </div>
         @endif
         <!-- プロフィール編集フォームの表示部分 -->
-        @if (request()->is('mypage/profile'))
+        @if (request()->routeIs('profile.edit'))
             <div id="profile_edit-form">
                 <h3>プロフィール編集</h3>
                 <!-- エラーメッセージ表示部分 -->
@@ -45,7 +58,6 @@
                         @endforeach
                     </ul>
                 </div>
-                    
                 @endif
                 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf

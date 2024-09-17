@@ -23,6 +23,18 @@
     margin: 0 auto;
 }
 
+.tabs a {
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.tabs a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+}
+
+
 /* レスポンシブ対応：画面が狭い場合は列数を減らす */
 @media (max-width: 1024px) {
     .item {

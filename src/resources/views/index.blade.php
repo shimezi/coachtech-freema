@@ -6,6 +6,19 @@
 
 @section('content')
     <div class="container">
+        <div class="tabs">
+            <ul class="tab-links">
+                <li class="{{ request()->routeIs('index') ? 'active' : '' }}">
+                    <a href="{{ route('index') }}">おすすめ</a>
+                </li>
+            </ul>
+            <ul class="tab-links">
+                <li class="{{ request()->routeIs('liked.items') ? 'active' : '' }}">
+                    <a href="{{ route('liked.items') }}">マイリスト</a>
+                </li>
+
+            </ul>
+        </div>
         <div class="item">
             @foreach ($items as $item)
                 <div class="thumbnail">

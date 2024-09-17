@@ -17,16 +17,16 @@
                 <form action="{{ route('item.like', ['id' => $item->id]) }}" method="POST">
                     @csrf
                     @if (auth()->check() && $item->likes->contains('user_id', auth()->user()->id))
-                        <button type="submit" class="like-button"><i class="fa-solid fa-star"></i></button>
+                        <button type="submit" class="like"><i class="fa-solid fa-star"></i></button>
                     @else
-                        <button type="submit" class="like-button"><i class="fa-regular fa-star"></i></button>
+                        <button type="submit" class="like"><i class="fa-regular fa-star"></i></button>
                     @endif
                 </form>
                 <p class="like-count">{{ $item->likes_count }}</p>
             </div>
             <div class="comment-section">
                 <!-- コメントボタンとコメント数 -->
-                <div class="comment-buttn_container">
+                <div class="comment-buttotn_container">
                     <form action="{{ route('comments.showForm', ['id' => $item->id]) }}" method="POST">
                         @csrf
                         <button type="submit" class="comment-button">

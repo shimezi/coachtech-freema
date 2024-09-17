@@ -24,4 +24,16 @@ class UserController extends Controller
 
         return view('mypage', compact('profile', 'soldItems', 'purchasedItems'));
     }
+
+    public function soldProducts()
+    {
+        $items = auth()->user()->items()->paginate(10); // 出品したアイテム
+        return view('mypage', compact('items'));
+    }
+
+    public function purchasedProducts()
+    {
+        $items = auth()->user()->soldItems()->paginate(10); // 購入したアイテム
+        return view('mypage', compact('items'));
+    }
 }

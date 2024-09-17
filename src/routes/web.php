@@ -1,11 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
     Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::post('/items/{id}/like', [LikeController::class, 'likeButton'])->name('item.like');
+    Route::get('/mypage/sold_products', [UserController::class, 'soldProducts'])->name('mypage.soldProducts');
+    Route::get('/mypage/purchased_products', [UserController::class, 'purchasedProducts'])->name('mypage.purchasedProducts');
+    Route::post('/items/{id}/like', [LikeController::class, 'like'])->name('item.like');
+    Route::get('/liked_items', [LikeController::class, 'likeItems'])->name('liked.items');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/comments/form/{id}', [CommentController::class, 'showForm'])->name('comments.showForm');
     Route::get('/sell/create', [ItemController::class, 'createSell'])->name('sell.create');

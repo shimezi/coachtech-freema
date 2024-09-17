@@ -14,7 +14,6 @@ class ItemController extends Controller
 {
     public function index()
     {
-        // $items = Item::all();
         $items = Item::paginate(10); // 1ページあたり10個のアイテムを表示
 
         return view('index', compact('items'));
@@ -88,7 +87,7 @@ class ItemController extends Controller
         if (!$profile) {
             // プロフィールが存在しない場合の処理
             return redirect()->route('profile.edit') // プロフィール登録フォームのルート
-            ->withErrors(['profile' => '商品を購入するにはプロフィールを登録してください。']);
+                ->withErrors(['profile' => '商品を購入するにはプロフィールを登録してください。']);
         }
 
         // 購入処理を実行

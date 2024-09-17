@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
-
+use Facade\FlareClient\View;
 
 class LikeController extends Controller
 {
-    public function likeButton($id)
+    public function like($id)
     {
         if (!auth()->check()) {
             return redirect()->route('login');
         }
-        
+
         $item = Item::findOrFail($id);
         $user = auth()->user();
 
@@ -23,6 +23,17 @@ class LikeController extends Controller
         } else {
             $item->likes()->create(['user_id' => $user->id]);
             return redirect()->back()->with('success', 'お気に入りに追加しました。');
+        }
+    }
+
+    public function likeItems()
+    {
+        if (auth()->check()) {
+            $user = auth()->user();
+            $items = $user->likedItems()->paginate(10);
+            return view('index', ['items' => $items]);
+        } else {
+            return redirect()->route('index')->with('error', 'ログインしてください。');
         }
     }
 }
