@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Requests\AdminRegisterRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +25,10 @@ Route::get('/items/{id}', [ItemController::class, 'show'])->name('item.show');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/mypage', [UserController::class, 'mypage'])->name('mypage');
-    Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::get('/mypage/sold_products', [UserController::class, 'soldProducts'])->name('mypage.soldProducts');
     Route::get('/mypage/purchased_products', [UserController::class, 'purchasedProducts'])->name('mypage.purchasedProducts');
+    Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/items/{id}/like', [LikeController::class, 'like'])->name('item.like');
     Route::get('/liked_items', [LikeController::class, 'likeItems'])->name('liked.items');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
@@ -39,4 +41,17 @@ Route::middleware(['auth'])->group(function () {
     //Route::post('/purchase/address/{id}', [ItemController::class, 'storeAddress'])->name('purchase.address.different');
     //Route::get('/purchase/payment/{id}', [ItemController::class, 'payment'])->name('purchase.payment');
     //Route::post('/purchase/payment/{id}', [ItemController::class, 'storePayment'])->name('purchase.payment');
+});
+
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/register', [AdminController::class, 'showRegister'])->name('admin.register.form');
+    Route::post('/register', [AdminController::class, 'register'])->name('admin.register');
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    // ユーザー管理
+    Route::delete('user/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
+
+    // コメント管理
+    Route::get('/comments', [CommentController::class, 'index'])->name('admin.comments.index');
+    Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('admin.comments.destroy'); // コメント削除
 });

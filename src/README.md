@@ -15,7 +15,7 @@ https://github.com/shimezi/coachtech-freema
 商品お気に入り一覧取得<br>
 ユーザー情報取得<br>
 ユーザー購入商品一覧取得<br>
-ユーザー出品商品一覧取得,br
+ユーザー出品商品一覧取得<br>
 プロフィール変更<br>
 商品お気に入り追加<br>
 商品お気に入り削除<br>

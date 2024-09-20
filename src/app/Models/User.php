@@ -71,4 +71,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(SoldItem::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->is_admin; // is_admin フィールドを使用
+    }
 }

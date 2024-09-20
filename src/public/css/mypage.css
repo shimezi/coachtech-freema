@@ -1,0 +1,31 @@
+.item {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5列のグリッド */
+    gap: 20px; /* アイテム間の隙間 */
+}
+
+.thumbnail {
+    background-color: #f5f5f5; /* 背景色 */
+    padding: 10px; /* 内側の余白 */
+    text-align: center; /* テキストを中央揃え */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 5px; /* 角を丸くする */
+}
+
+.thumbnail img {
+    max-width: 100%; /* 画像の最大幅 */
+    height: auto; /* 高さは自動で調整 */
+    display: block; /* ブロック要素として表示 */
+    margin: 0 auto; /* 中央に配置 */
+}
+
+.tabs a {
+    padding: 10px; /* リンクの内側余白 */
+    text-decoration: none; /* 下線を消す */
+    color: #000; /* テキストの色 */
+}
+
+.tabs a.active {
+    font-weight: bold; /* アクティブなリンクの太字 */
+    border-bottom: 2px solid #000; /* アクティブなリンクの下線 */
+}

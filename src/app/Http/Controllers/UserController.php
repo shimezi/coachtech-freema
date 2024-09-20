@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class UserController extends Controller
 {
@@ -13,27 +12,27 @@ class UserController extends Controller
         $profile = $user->profile;
 
         // 出品した商品を取得
-        $soldItems = $user->soldItems->map(function ($soldItem) {
-            return $soldItem->item;
-        });
+        $soldProducts = $user->items()->get();
 
         // 購入した商品を取得
-        $purchasedItems = $user->soldItems->map(function ($soldItem) {
-            return $soldItem->item;
-        });
+        $purchasedProducts = $user->soldItems()->get();
 
-        return view('mypage', compact('profile', 'soldItems', 'purchasedItems'));
+        return view('mypage', compact('profile', 'soldProducts', 'purchasedProducts'));
     }
 
     public function soldProducts()
     {
-        $items = auth()->user()->items()->paginate(10); // 出品したアイテム
-        return view('mypage', compact('items'));
+        $user = auth()->user();
+        $items = $user->soldProducts()->paginate(10);
+
+        return view('mypage', ['items' => $items]);
     }
 
     public function purchasedProducts()
     {
-        $items = auth()->user()->soldItems()->paginate(10); // 購入したアイテム
-        return view('mypage', compact('items'));
+        $user = auth()->user();
+        $items = $user->purchasedProducts()->paginate(10);
+
+        return view('mypage', ['items' => $items]); // これを修正
     }
 }
