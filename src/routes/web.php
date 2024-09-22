@@ -43,11 +43,10 @@ Route::middleware(['auth'])->group(function () {
     //Route::post('/purchase/payment/{id}', [ItemController::class, 'storePayment'])->name('purchase.payment');
 });
 
+Route::get('/admin/', [AdminController::class, 'showLogin'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.post');
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/register', [AdminController::class, 'showRegister'])->name('admin.register.form');
-    Route::post('/register', [AdminController::class, 'register'])->name('admin.register');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
     // ユーザー管理
     Route::delete('user/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
 

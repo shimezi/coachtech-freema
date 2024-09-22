@@ -18,17 +18,17 @@
     </div>
     @endif
 
-    <form class="register-form" method="POST" action="{{ route('register') }}">
+    <form class="register-form" action="{{ route('register') }}" method="POST">
         @csrf
-        <div class="form-group">
-            <p>メールアドレス</p>
+        <div class="register-form_group">
+            <label for="email">メールアドレス</label>
             <input type="email" name="email" id="email" value="{{ old('email') }}" required>
         </div>
-        <div class="form-group">
-            <p>パスワード</p>
+        <div class="register-form_group">
+            <label for="password">パスワード</label>
             <input type="password" name="password" id="password" value="{{ old('password') }}" required>
         </div>
-        <button type="submit" class="btn-register">登録する</button>
+        <button type="submit" class="register-button">登録する</button>
     </form>
     <a href="{{ route('login') }}" class="login-link">ログインはこちらから</a>
 </div>
