@@ -21,7 +21,12 @@ https://github.com/shimezi/coachtech-freema
 商品お気に入り削除<br>
 商品コメント追加<br>
 商品コメント削除<br>
-出品
+出品<br>
+-- 以下追加項目 --<br>
+
+管理画面
+ストレージ
+
 ## 使用技術(実行環境)
 ## テーブル設計
 ## ER図

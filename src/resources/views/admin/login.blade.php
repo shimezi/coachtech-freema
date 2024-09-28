@@ -3,17 +3,6 @@
 @section('content')
     <div class="login-container">
         <h1>ログイン</h1>
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <form class="login-form" action="{{ route('admin.login.post') }}" method="POST">
             @csrf
             <div class="login-form_group">

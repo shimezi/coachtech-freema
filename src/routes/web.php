@@ -8,6 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Requests\AdminRegisterRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserNotificationMail;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,19 @@ use App\Http\Requests\AdminRegisterRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test-mail', function () {
+    $user = User::first(); // 既存のユーザーを取得
+    if (!$user) {
+        return 'ユーザーが見つかりません。';
+    }
+
+    try {
+        Mail::to($user->email)->send(new UserNotificationMail($user, 'これはテストメールです。'));
+        return 'メールが送信されました。';
+    } catch (\Exception $e) {
+        return 'メール送信中にエラーが発生しました: ' . $e->getMessage();
+    }
+});
 
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/items/{id}', [ItemController::class, 'show'])->name('item.show');
@@ -43,14 +59,21 @@ Route::middleware(['auth'])->group(function () {
     //Route::post('/purchase/payment/{id}', [ItemController::class, 'storePayment'])->name('purchase.payment');
 });
 
-Route::get('/admin/', [AdminController::class, 'showLogin'])->name('admin.login');
+Route::get('/admin', [AdminController::class, 'showLogin'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.post');
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
     // ユーザー管理
-    Route::delete('user/{user}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
+    Route::get('/manage_users', [AdminController::class, 'index'])->name('admin.users.index');
+    Route::delete('/users/{id}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
 
     // コメント管理
     Route::get('/comments', [CommentController::class, 'index'])->name('admin.comments.index');
     Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('admin.comments.destroy'); // コメント削除
+
+    // メール送信フォームの表示
+    Route::get('/mail_form/{id}', [AdminController::class, 'showMailForm'])->name('admin.mail_form');
+
+    Route::post('/send_email', [AdminController::class, 'sendEmail'])->name('admin.send_email');
 });

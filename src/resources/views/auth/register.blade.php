@@ -7,17 +7,6 @@
 @section('content')
 <div class="register-container">
     <h2>会員登録</h2>
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <form class="register-form" action="{{ route('register') }}" method="POST">
         @csrf
         <div class="register-form_group">

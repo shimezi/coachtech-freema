@@ -41,4 +41,18 @@ class CommentController extends Controller
         // リダイレクトしてフォームを表示させる
         return redirect()->route('item.show', ['id' => $id]);
     }
+
+    public function index()
+    {
+        $comments = Comment::all(); // すべてのコメントを取得
+        return view('admin.manage_comments', compact('comments')); // ビューに渡す
+    }
+
+    public function destroy($id)
+    {
+        $comment = Comment::findOrFail($id); // コメントを取得
+        $comment->delete(); // コメントを削除
+
+        return redirect()->route('admin.comments.index')->with('success', 'コメントが削除されました。');
+    }
 }

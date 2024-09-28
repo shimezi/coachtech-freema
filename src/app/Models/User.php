@@ -69,7 +69,7 @@ class User extends Authenticatable
     
     public function soldItems()
     {
-        return $this->hasMany(SoldItem::class);
+        return $this->hasMany(SoldItem::class, 'user_id');
     }
 
     public function isAdmin()

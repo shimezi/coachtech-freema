@@ -24,8 +24,18 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required' | 'email' | 'unique:email' | 'string' | 'max:191',
-            'password' => 'required' | 'min:8' | 'max:191',
+            'email' => 'required|email|unique:email|string|max:191',
+            'password' => 'required|min:8|max:191',
+        ];
+    }
+
+    public function massages()
+    {
+        return [
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => 'メールアドレス形式で入力してください。',
+            'password.required' => 'パスワードを入力してください。',
+            'password.min' => 'パスワードを8文字以上で入力してください。',
         ];
     }
 }
