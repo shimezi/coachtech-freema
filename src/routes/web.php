@@ -45,6 +45,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mypage/purchased_products', [UserController::class, 'purchasedProducts'])->name('mypage.purchasedProducts');
     Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::get('/items/{id}/edit', [ItemController::class, 'edit'])->name('item.edit');
+    Route::post('items/{id}', [ItemController::class, 'update'])->name('item.update');
     Route::post('/items/{id}/like', [LikeController::class, 'like'])->name('item.like');
     Route::get('/liked_items', [LikeController::class, 'likeItems'])->name('liked.items');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
@@ -53,8 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/sell/store', [ItemController::class, 'storeSell'])->name('sell.store');
     Route::get('purchase/create{id}', [ItemController::class, 'createPurchase'])->name('purchase.create');
     Route::post('/purchase/store/{id}', [ItemController::class, 'storePurchase'])->name('purchase.store');
-    //Route::get('/purchase/address/{id}', [ItemController::class, 'address'])->name('purchase.address');
-    //Route::post('/purchase/address/{id}', [ItemController::class, 'storeAddress'])->name('purchase.address.different');
+    Route::get('/purchase/address/{id}', [ItemController::class, 'address'])->name('purchase.address');
+    Route::post('/purchase/address/{id}', [ItemController::class, 'storeAddress'])->name('purchase.address.different');
     //Route::get('/purchase/payment/{id}', [ItemController::class, 'payment'])->name('purchase.payment');
     //Route::post('/purchase/payment/{id}', [ItemController::class, 'storePayment'])->name('purchase.payment');
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
+use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -17,15 +18,8 @@ class ProfileController extends Controller
     }
 
     // プロフィールの更新処理
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'img_url' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
-            'postcode' => 'required|string|max:8',
-            'address' => 'required|string|max:255',
-            'building' => 'nullable|string|max:255',
-        ]);
 
         // プロフィールを取得または新規作成
         $profile = Profile::firstOrNew(['user_id'=> Auth::id()]);

@@ -30,7 +30,6 @@
             </form>
         @endif
         <!-- 配送先変更フォーム -->
-        <!--
             @if (request()->routeIs('purchase.address'))
     <h1>住所の変更</h1>
                 <form action="{{ route('purchase.address.different', ['id' => $item->id]) }}" method="POST">
@@ -50,6 +49,5 @@
                     <button type="submit">更新する</button>
                 </form>
     @endif
-            -->
     </div>
 @endsection

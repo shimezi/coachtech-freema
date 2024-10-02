@@ -9,6 +9,9 @@ use App\Models\Profile;
 use App\Models\SoldItem;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemStoreRequest;
+use App\Http\Requests\ItemUpdateRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -23,8 +26,62 @@ class ItemController extends Controller
     {
         $item = Item::with('condition', 'categories', 'comments.user', 'likes')->findOrFail($id);
 
+        // ログインユーザーが商品の所有者である場合、編集ページにリダイレクト
+        if (auth()->check() && auth()->id() == $item->user_id) {
+            return redirect()->route('item.edit', ['id' => $item->id]);
+        }
+
         return view('item', compact('item'));
     }
+
+    public function edit($id)
+    {
+        $item = Item::with('categories')->findOrFail($id);
+
+        // ログインユーザーが商品の所有者であることを確認
+        if (auth()->id() != $item->user_id) {
+            return redirect()->route('item.show', ['id' => $item->id])->with('error', '編集する権限がありません。');
+        }
+
+        $categories = Category::all();
+        $conditions = Condition::all();
+
+        return view('sell', compact('item', 'categories', 'conditions'));
+    }
+
+    public function update(ItemUpdateRequest $request, $id)
+    {
+        $item = Item::findOrFail($id);
+
+        // ログインユーザーが商品の所有者であることを確認
+        if (auth()->id() != $item->user_id) {
+            return redirect()->route('item.sho', ['id' => $item->id])->with('error', '更新する権限がありません。');
+        }
+
+        // 商品情報の更新
+        $item->condition_id = $request->input('condition_id');
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+
+        // 画像の更新処理
+        if ($request->hasFile('img_url')) {
+            // 既存の画像を削除
+            if ($item->img_url && Storage::disk('public')->exists($item->img_url)) {
+                Storage::disk('public')->delete($item->img_url);
+            }
+            // 新しい画像を保存
+            $item->img_url = $request->file('img_url')->store('items', 'public');
+        }
+
+        $item->save();
+
+        // カテゴリーの更新
+        $item->categories()->sync($request->input('category_ids'));
+
+        return redirect()->route('mypage')->with('success', '商品情報を更新しました。');
+    }
+
 
     public function createSell()
     {
@@ -37,19 +94,8 @@ class ItemController extends Controller
         return view('sell', compact('categories', 'conditions'));
     }
 
-    public function storeSell(Request $request)
+    public function storeSell(ItemStoreRequest $request)
     {
-
-        // バリデーションと保存処理
-        $validated = $request->validate([
-            'img_url' => 'required|image',
-            'category_ids' => 'required|array', // 配列としてバリデーション
-            'category_ids.*' => 'exists:categories,id', // 配列としてバリデーション
-            'condition_id' => 'required|exists:conditions,id',
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
-        ]);
 
         // バリデーション済みデータを使用して処理
         $item = new Item();
@@ -64,7 +110,7 @@ class ItemController extends Controller
         // 選択されたカテゴリーを関連付け
         $item->categories()->attach($request->input('category_ids'));
 
-        return redirect()->route('index');
+        return redirect()->route('mypage');
     }
 
     // アイテム購入ページの表示
