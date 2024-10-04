@@ -71,7 +71,7 @@ class AdminController extends Controller
     public function showMailForm($id)
     {
         $user = User::FindOrFail($id);
-        return view('emails.user_notification', compact('user'));
+        return view('admin.mail_form', compact('user'));
     }
 
     /**
@@ -89,6 +89,8 @@ class AdminController extends Controller
         $user = User::where('email', $email)->first(); // ここでユーザーを取得
 
         try {
+            Log::info('送信するメールアドレス: ' . $email);
+            Log::info('送信するメッセージ: ' . $message);
 
             Mail::to($email)->send(new UserNotificationMail($user, $message));
 

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="common-container">
         <header class="header">
             <div class="header-content">
 

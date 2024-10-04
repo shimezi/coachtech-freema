@@ -22,20 +22,6 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/test-mail', function () {
-    $user = User::first(); // 既存のユーザーを取得
-    if (!$user) {
-        return 'ユーザーが見つかりません。';
-    }
-
-    try {
-        Mail::to($user->email)->send(new UserNotificationMail($user, 'これはテストメールです。'));
-        return 'メールが送信されました。';
-    } catch (\Exception $e) {
-        return 'メール送信中にエラーが発生しました: ' . $e->getMessage();
-    }
-});
-
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/items/{id}', [ItemController::class, 'show'])->name('item.show');
 
