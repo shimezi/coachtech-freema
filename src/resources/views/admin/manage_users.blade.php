@@ -18,7 +18,7 @@
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->is_admin ? '' : '' }}</td>
+                        <td>{{ $user->is_admin ? '管理者' : '一般ユーザー' }}</td>
                         <td>
                             <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
                                 @csrf

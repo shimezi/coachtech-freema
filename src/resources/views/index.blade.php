@@ -17,8 +17,8 @@
                 </li>
             </ul>
         </div>
-         <!-- タブとアイテムの境界線 -->
-         <div class="tab-boundary"></div>
+        <!-- タブとアイテムの境界線 -->
+        <div class="tab-line"></div>
         <div class="item">
             @foreach ($items as $item)
                 <div class="thumbnail">
@@ -30,7 +30,7 @@
                 </div>
             @endforeach
         </div>
+        <!-- ページネーションリンク -->
+        {{ $items->links() }}
     </div>
-    <!-- ページネーションリンク -->
-    {{ $items->links() }}
 @endsection

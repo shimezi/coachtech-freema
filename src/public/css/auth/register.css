@@ -1,0 +1,83 @@
+.register-container {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 0; /* 上下の余白を無くす */
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 80px);
+}
+
+.register-title {
+    width: 144px;
+    font-size: 36px;
+    color: #000000;
+    margin: 0 auto;
+    padding-top: 89px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 29.05px;
+    text-align: center;
+}
+
+.register-form {
+    max-width: 680px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 127px;
+    flex-direction: column;
+    gap: 69px;
+}
+
+.register-form_group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.register-form_group label {
+    height: 36px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.register-form_group input {
+    padding: 10px;
+    font-size: 24px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+}
+
+.register-form_button {
+    background-color: #FF5555;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31.47px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 36px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-form_button:hover {
+    background-color: #FFFFFF; /* 背景色を白に */
+    color: #FF5555; /* 文字色を元のボタン色に */
+    border: 1px solid #FF5555; /* ボタンの枠をそのまま維持 */
+}
+
+.login-link {
+    display: block;
+    max-width: 257px;
+    margin: 20px auto 0;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.2px;
+    color: #0073CC;
+    text-decoration: none;
+    text-align: center;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}

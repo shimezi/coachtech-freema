@@ -1,83 +1,83 @@
-/* ログインコンテナ */
 .login-container {
-    height: calc(100vh - 80px); /* ヘッダーの高さを差し引いて残りの高さを指定 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 垂直方向の中央揃え */
-    align-items: center; /* 水平方向の中央揃え */
+    max-width: 1512px;
     margin: 0 auto;
+    padding: 0; /* 上下の余白を無くす */
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 80px);
 }
 
-/* タイトルの位置調整 */
 .login-title {
+    width: 144px;
     font-size: 36px;
-    font-weight: 700;
     color: #000000;
-    text-align: center;
-    margin-bottom: 50px; /* タイトルとフォームの間に余白 */
-}
-
-/* メールアドレスフィールドのスタイル */
-.login-form_group input[type="email"] {
-    position: absolute;
-    top: 340px; /* Figmaで指定されたtop位置 */
-    left: 416px; /* Figmaで指定されたleft位置 */
-    width: 680px;
-}
-
-/* パスワードフィールドのスタイル */
-.login-form_group input[type="password"] {
-    position: absolute;
-    top: 505px; /* Figmaで指定されたtop位置 */
-    left: 416px;
-    width: 680px;
-}
-
-/* ラベルのスタイル（共通） */
-.login-form_group label {
-    font-size: 24px;
+    margin: 0 auto;
+    padding-top: 89px;
+    margin-bottom: 20px;
     font-weight: 700;
     line-height: 29.05px;
-    color: #000000;
-    display: block;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-/* 入力フィールド共通のスタイル */
+.login-form {
+    max-width: 680px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 127px;
+    flex-direction: column;
+    gap: 69px;
+}
+
+.login-form_group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-form_group label {
+    height: 36px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
 .login-form_group input {
-    height: 60px;
     padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
+    font-size: 24px;
     border: 1px solid #5F5F5F;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    border-radius: 4px;
 }
 
-/* ログインボタンのスタイル */
 .login-form_button {
-    width: 680px;
-    height: 60px;
-    border-radius: 5px;
     background-color: #FF5555;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+    line-height: 31.47px;
+    padding: 10px;
     border: none;
+    border-radius: 5px;
+    margin-top: 36px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* 会員登録リンクのスタイル */
+.login-form_button:hover {
+    background-color: #FFFFFF; /* 背景色を白に */
+    color: #FF5555; /* 文字色を元のボタン色に */
+    border: 1px solid #FF5555; /* ボタンの枠をそのまま維持 */
+}
+
 .register-link {
     display: block;
-    margin-top: 30px;
+    max-width: 257px;
+    margin: 20px auto 0;
     font-size: 20px;
     font-weight: 400;
     line-height: 24.2px;
-    color: #0073cc;
-    text-align: center;
+    color: #0073CC;
     text-decoration: none;
+    text-align: center;
+}
+
+.register-link:hover {
+    text-decoration: underline;
 }

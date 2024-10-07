@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="register-container">
-    <h2>会員登録</h2>
+    <h2 class="register-title">会員登録</h2>
     <form class="register-form" action="{{ route('register') }}" method="POST">
         @csrf
         <div class="register-form_group">
@@ -17,7 +17,7 @@
             <label for="password">パスワード</label>
             <input type="password" name="password" id="password" value="{{ old('password') }}" required>
         </div>
-        <button type="submit" class="register-button">登録する</button>
+        <button type="submit" class="register-form_button">登録する</button>
     </form>
     <a href="{{ route('login') }}" class="login-link">ログインはこちらから</a>
 </div>

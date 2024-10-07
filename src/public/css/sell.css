@@ -1,0 +1,150 @@
+.sell-container {
+    max-width: 1512px;
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    padding: 80px;
+    background-color: #FFFFFF;
+}
+
+.sell-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.sell-container h2 {
+    max-width: 680px;
+    margin: 0 auto;
+    margin-top: 72px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 700;
+    color: #5F5F5F;
+    border-bottom: 1px solid #5F5F5F;
+}
+
+.sell-form_group {
+    max-width: 680px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.sell-form_group label {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 36px;
+    margin-bottom: 7px;
+}
+
+.sell-form_group input, .sell-form_group select, .sell-form_group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 24px;
+    border: 1px solid #5F5F5F;
+    border-radius: 5px;
+}
+
+/* ファイル選択ボタンのスタイル */
+.file-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    color: #FF5555;
+    border: 1px solid #5F5F5F;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+}
+
+.file-select-button {
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #FF5555 !important;
+    font-size: 16px;
+    border: 2px solid #FF5555;
+    border-radius: 5px;
+}
+
+.file-select-button:hover {
+    background-color: #FF5555; /* ホバー時の背景色 */
+    color: #FFFFFF !important; /* ホバー時のテキスト色 */
+    border: 1px solid #FF5555; /* ボタンの枠をそのまま維持 */
+}
+
+.file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 24px;
+    color: #5F5F5F;
+    white-space: nowrap; /* テキストが折り返されないようにする */
+}
+
+
+.sell-form_group input[type="file"] {
+    display: none;
+}
+
+.sell-form_group img {
+    display: block;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.sell-form_group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.price-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #5F5F5F;
+    border-radius: 5px;
+}
+
+.currency-symbol {
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 5px;
+    margin-left: 10px;
+    color: #000000;
+}
+
+.price-wrapper input {
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
+    outline: none; /* フォーカス時の青い枠をなくす */
+}
+
+
+.sell-form_button {
+    display: block;
+    width: 100%;
+    max-width: 680px;
+    padding: 15px;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 90px;
+}
+
+.sell-form_button:hover {
+    background-color: #FFFFFF;
+    color: #FF5555;
+    border: 1px solid #FF5555;
+}

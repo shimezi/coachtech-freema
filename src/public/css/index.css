@@ -1,237 +1,124 @@
-/* index.css */
-
-/* コンテンツコンテナのスタイル */
 .index-container {
-    width: 1512px;
-    height: calc(100vh - 80px); /* ヘッダーの高さ分を差し引く */
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 1512px; /* 共通の幅に揃える */
+    min-height: calc(100vh - 80px); /* ヘッダーの高さを引いた最低高さ */
+    margin: 0 auto; /* コンテンツを中央揃え */
+    padding: 0; /* 上下に余白を追加 */
     background-color: #FFFFFF;
-    box-sizing: border-box;
-    position: relative; /* 子要素の絶対配置に対応 */
 }
 
+/* タブ部分のスタイル */
 /* タブ全体のスタイル */
 .tabs {
-    position: relative; /* タブ下の線の位置調整のために追加 */
-    height: 40px; /* タブの高さに合わせる */
-    /* border-bottom: 2px solid #5F5F5F; */ /* タブの下に線を配置する装飾を削除 */
+    position: relative; /* 相対的な位置を指定 */
+    top: 52px; /* 132px - ヘッダー80px */
+    left: 147px; /* 左の位置を指定 */
+    padding-bottom: 10px;
 }
 
-/* タブリンクのリスト */
+/* 左のタブのスタイル */
+.tab-left {
+    width: 155px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.05px;
+    text-align: left;
+}
+
+/* 右のタブのスタイル */
+.tab-right {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.05px;
+    text-align: left;
+    margin-left: 10px; /* 左のタブからの間隔を指定 */
+}
+
 .tab-links {
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute; /* タブを絶対配置 */
-    top: 0;
-    left: 0;
-    height: 100%;
+    display: flex;
+    gap: 20px; /* タブ間の隙間 */
 }
 
-/* 各タブリンクの項目 */
 .tab-links li {
-    position: absolute; /* タブを絶対配置 */
-    width: 155px;
-    height: 40px;
-    opacity: 1; /* 完全に表示 */
-    border-radius: 4px 0px 0px 0px;
+    display: inline-block;
 }
 
-/* 左タブの位置 */
-.tab-left {
-    top: 52px; /* 132px - 80px = 52px */
-    left: 147px;
-}
-
-/* 右タブの位置 */
-.tab-right {
-    top: 51px; /* 131px - 80px = 51px */
-    left: 336px;
-}
-
-/* タブリンクのアンカー */
 .tab-links a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    line-height: 40px; /* 垂直中央揃え */
-    text-align: left;
-    font-size: 24px;
-    font-weight: 700;
-    color: #5F5F5F; /* 非アクティブ時のテキストカラー */
     text-decoration: none;
-    transition: color 0.3s;
-    padding-left: 10px; /* テキストの左寄せ */
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #5F5F5F;
+    transition: background-color 0.3s ease;
 }
 
-/* アクティブなタブのスタイル */
-.tab-links li.active a {
-    color: #FF0000; /* アクティブ時のテキストカラー */
-    /* border-bottom: 2px solid #FF0000; */ /* タブ下の線を削除 */
+.tab-links .active a {
+    color: #FF0000; /* アクティブなタブの文字色 */
 }
 
-/* アイテム一覧のスタイル */
+/* タブとアイテムリストの境界線 */
+.tab-line {
+    height: 2px;
+    background-color: #5F5F5F;
+    margin-top: 42px;
+    margin-bottom: 20px;
+}
+
 .item {
     display: grid;
-    grid-template-columns: repeat(5, 200px);
-    grid-template-rows: repeat(2, 200px);
-    justify-content: start; /* 左寄せ */
-    gap: 20px; /* グリッド間のスペース */
-    position: absolute;
-    top: 237px; /* 左上のサムネイルのtop */
-    left: 102px; /* 左上のサムネイルのleft */
+    grid-template-columns: repeat(5, 200px); /* 1行に5つのアイテムを並べる */
+    grid-template-rows: repeat(2, 200px); /* 2行のアイテム */
+    column-gap: 77px; /* 横の間隔（列の間隔） */
+    row-gap: 105px; /* 縦の間隔（行の間隔） */
+    justify-content: center; /* アイテムを中央揃え */
+    margin: 64px auto 0 auto; /* 上に64pxの余白、中央揃え */
 }
 
-/* サムネイルのスタイル */
 .thumbnail {
     width: 200px;
     height: 200px;
-    border-radius: 4px 0px 0px 0px;
-    opacity: 1; /* 完全に表示 */
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
-    overflow: hidden;
-    transition: box-shadow 0.3s;
-    background-color: #fff;
+    border-radius: 4px;
 }
 
-.thumbnail:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 画像のスタイル */
 .thumbnail img {
     width: 100%;
-    height: 100%; /* 画像をサムネイルにフィットさせる */
-    object-fit: cover; /* 画像のアスペクト比を維持 */
-    display: block;
+    height: 100%;
+    object-fit: cover; /* 画像がサムネイルに収まるように調整 */
 }
 
-/* アイテムIDのスタイル */
 .thumbnail p {
-    margin: 10px;
+    margin-top: 10px;
     font-size: 14px;
-    color: #333;
-    text-align: center;
+    color: #666;
 }
 
-/* ページネーションのスタイル */
+/* ページネーションリンクを中央揃え */
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
-}
-
-.pagination ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
+    padding: 10px;
+    margin-top: 90px; /* コンテンツとページネーションの間に余白 */
 }
 
 .pagination li {
-    display: inline;
+    display: inline-block;
+    margin: 0 5px;
 }
 
-.pagination a,
-.pagination span {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.pagination a {
     text-decoration: none;
-    color: #FF0000;
-    transition: background-color 0.3s, color 0.3s;
+    font-size: 24px; /* フォントサイズを調整 */
+    font-weight: 400; /* フォントの太さを調整 */
+    color: #FF0000; /* テキストの色 */
+    padding: 5px 10px;
+    border: 1px solid #ddd; /* ボーダーを追加して見やすく */
+    border-radius: 5px; /* 角を丸める */
 }
 
 .pagination a:hover {
-    background-color: #FF0000;
-    color: #fff;
-}
-
-.pagination .active span {
-    background-color: #FF0000;
-    color: #fff;
-    border-color: #FF0000;
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 1512px) {
-    .index-container {
-        width: 100%;
-    }
-}
-
-@media (max-width: 992px) {
-    .thumbnail {
-        width: 200px;
-        height: 200px;
-    }
-
-    .item {
-        grid-template-columns: repeat(4, 200px); /* 列数を4に減らす */
-        grid-template-rows: repeat(auto-fill, 200px);
-        gap: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .thumbnail {
-        width: 200px;
-        height: 200px;
-    }
-
-    .item {
-        grid-template-columns: repeat(3, 200px); /* 列数を3に減らす */
-    }
-}
-
-@media (max-width: 576px) {
-    .thumbnail {
-        width: 200px;
-        height: 200px;
-    }
-
-    .item {
-        grid-template-columns: repeat(2, 200px); /* 列数を2に減らす */
-    }
-
-    .tab-links {
-        position: static; /* 絶対配置を解除 */
-        flex-direction: column;
-        align-items: center; /* タブを中央に配置 */
-    }
-
-    .tab-links li {
-        position: static;
-        margin: 5px 0;
-    }
-
-    /* タブ下の線を非表示 */
-    .tabs {
-        border-bottom: none;
-    }
-
-    .item {
-        top: 237px; /* ヘッダーの高さ分を差し引く */
-        left: 50%; /* 中央に配置 */
-        transform: translateX(-50%);
-    }
-
-    .index-container {
-        height: calc(100vh - 80px);
-    }
-}
-
-/* オプション: タブのホバー効果 */
-.tab-links a:hover {
-    color: #FF0000; /* ホバー時のテキストカラーをアクティブカラーに */
-}
-
-/* オプション: アクティブタブの背景色変更 */
-.tab-links li.active a {
-    background-color: #f0f0f0; /* 例: 薄いグレー */
-    /* border-bottom: 2px solid #FF0000; */ /* タブ下の線を削除 */
-    border-radius: 4px 4px 0 0; /* 下線の位置を調整 */
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+    border-color: #bbb; /* ホバー時のボーダー色 */
 }

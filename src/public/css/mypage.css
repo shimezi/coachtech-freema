@@ -1,31 +1,177 @@
-.item {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5列のグリッド */
-    gap: 20px; /* アイテム間の隙間 */
+/* マイページのコンテナ */
+.mypage-container {
+    max-width: 1512px;
+    margin: 0 auto;
+    padding: 0; /* 上下の余白を無くす */
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 80px);
 }
 
+/* ユーザー情報エリア */
+.user-info {
+    display: flex;
+    align-items: center; /* 縦方向の位置を中央に揃える */
+    justify-content: center; /* 左寄せで横並びにする */
+    padding: 20px 0;
+    padding-top: 67px;
+}
+
+/* プロフィール画像 */
+.user_icon img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-profiles {
+    display: flex;
+    flex-direction: row; /* 横に並べる */
+    align-items: center; /* 縦方向で中央揃え */
+    gap: 20px; /* ユーザー名とボタンの間にスペースを追加 */
+    margin-left: 20px; /* プロフィール画像から少し余白を加える */
+}
+
+.user-profiles h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: left;
+    color: #000000;
+    margin-left: 57px;
+    margin-right: 250px;
+    margin-bottom: 10px;
+}
+
+/* プロフィール編集ボタン */
+.profile-edit_button {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background-color: #FFFFFF;
+    color: #FF5555;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+    border: 2px solid #FF5555;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px; /* ボタンを少し右側に移動 */
+}
+
+.profile-edit_button:hover {
+    background-color: #FF5555; /* ホバー時の背景色 */
+    color: #FFFFFF; /* ホバー時のテキスト色 */
+}
+
+.tabs {
+    position: relative; /* 相対的な位置を指定 */
+    top: 52px; /* 132px - ヘッダー80px */
+    left: 188px; /* 左の位置を指定 */
+    padding-bottom: 10px;
+}
+
+/* 左のタブのスタイル */
+.tab-left {
+    width: 155px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.05px;
+    text-align: left;
+}
+
+/* 右のタブのスタイル */
+.tab-right {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.05px;
+    text-align: left;
+    margin-left: 10px; /* 左のタブからの間隔を指定 */
+}
+
+.tab-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* タブ間の隙間 */
+}
+
+.tab-links li {
+    display: inline-block;
+}
+
+.tab-links a {
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #5F5F5F;
+    transition: background-color 0.3s ease;
+}
+
+.tab-links .active a {
+    color: #FF0000; /* アクティブなタブの文字色 */
+}
+
+/* タブとアイテムリストの境界線 */
+.tab-line {
+    height: 2px;
+    background-color: #5F5F5F;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* アイテム表示部分 */
+.item {
+    display: grid;
+    grid-template-columns: repeat(4, 200px); /* 4列 */
+    grid-template-rows: repeat(2, 200px); /* 2行 */
+    column-gap: 103px;
+    row-gap: 111px;
+    justify-content: center;
+    margin: 64px auto 0 auto; /* 上に64pxの余白、中央揃え */
+}
+
+/* サムネイル */
 .thumbnail {
-    background-color: #f5f5f5; /* 背景色 */
-    padding: 10px; /* 内側の余白 */
-    text-align: center; /* テキストを中央揃え */
-    border: 1px solid #ddd; /* 枠線 */
-    border-radius: 5px; /* 角を丸くする */
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
 }
 
 .thumbnail img {
-    max-width: 100%; /* 画像の最大幅 */
-    height: auto; /* 高さは自動で調整 */
-    display: block; /* ブロック要素として表示 */
-    margin: 0 auto; /* 中央に配置 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.tabs a {
-    padding: 10px; /* リンクの内側余白 */
-    text-decoration: none; /* 下線を消す */
-    color: #000; /* テキストの色 */
+.thumbnail p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
 }
 
-.tabs a.active {
-    font-weight: bold; /* アクティブなリンクの太字 */
-    border-bottom: 2px solid #000; /* アクティブなリンクの下線 */
+/* ページネーションリンク */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.pagination a {
+    font-size: 16px;
+    padding: 8px 12px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #FF5555;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #FF5555;
+    color: white;
 }
