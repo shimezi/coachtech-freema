@@ -36,8 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('items/{id}', [ItemController::class, 'update'])->name('item.update');
     Route::post('/items/{id}/like', [LikeController::class, 'like'])->name('item.like');
     Route::get('/liked_items', [LikeController::class, 'likeItems'])->name('liked.items');
+
+    Route::get('/items/{id}/comments', [CommentController::class, 'showComments'])->name('item.comments');
     Route::post('/items/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/comments/form/{id}', [CommentController::class, 'showForm'])->name('comments.showForm');
+
     Route::get('/sell/create', [ItemController::class, 'createSell'])->name('sell.create');
     Route::post('/sell/store', [ItemController::class, 'storeSell'])->name('sell.store');
     Route::get('purchase/create{id}', [ItemController::class, 'createPurchase'])->name('purchase.create');

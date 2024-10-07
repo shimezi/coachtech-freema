@@ -13,9 +13,42 @@ body {
     margin: 0;
 }
 
+/* サクセスメッセージのスタイル */
+.success-message {
+    color: #28A745; /* サクセスメッセージを緑色で表示 */
+    font-size: 14px; /* フォントサイズ */
+    margin-top: 5px; /* メッセージとフィールドの間隔 */
+    font-weight: 700; /* 太字で強調 */
+    background-color: #E6FFE6; /* 背景色を薄い緑に */
+    padding: 10px;
+    border-radius: 5px; /* 角を丸くする */
+    border: 1px solid #28A745; /* 緑色の枠線を追加 */
+}
+
+/* サクセスメッセージの入力フィールドのスタイル */
+.success-input {
+    border-color: #28A745; /* 成功したフィールドの枠線を緑色に */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* フィールドに軽い影を追加して成功を強調 */
+}
+
+
+
+/* エラーメッセージのスタイルをここに追加 */
+.error-message {
+    color: #FF5555; /* エラーメッセージを赤く表示 */
+    font-size: 14px; /* フォントサイズ */
+    margin-top: 5px; /* メッセージとフィールドの間隔 */
+    font-weight: 700; /* 太字で強調 */
+}
+
+.error-input {
+    border-color: #FF5555; /* エラーフィールドの枠線を赤く */
+    box-shadow: 0 0 5px rgba(255, 85, 85, 0.5); /* フィールドに軽い影を追加 */
+}
+
 /* 共通コンテナのスタイル */
 .common-container {
-    width: 1512px; /* 固定幅を指定 */
+    max-width: 1512px; /* 固定幅を指定 */
     margin: 0 auto; /* 中央揃え */
 }
 
@@ -105,28 +138,28 @@ button, a {
 }
 
 .register-button {
-    width: 135px;
+    max-width: 135px;
     height: 25px;
     background-color: #000000;
     color: #FFFFFF;
 }
 
 .logout-button {
-    width: 135px;
+    max-width: 135px;
     height: 47px;
     background-color: #000000;
     color: #FFFFFF;
 }
 
 .mypage-button {
-    width: 135px;
+    max-width: 135px;
     height: 47px;
     background-color: #000000;
     color: #FFFFFF;
 }
 
 .sell-button {
-    width: 100px;
+    max-width: 100px;
     height: 50px;
     background-color: #FFFFFF;
     color: #000000;

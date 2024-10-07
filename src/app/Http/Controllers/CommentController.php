@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function showComments($id)
+    {
+        $item = Item::with('comments.user')->findOrFail($id);  // アイテムとそのコメントを取得
+        return view('item', compact('item'));  // item.blade.php にアイテムを渡す
+    }
+    
     public function  store(Request $request, $id)
     {
         // バリデーション
@@ -19,8 +25,8 @@ class CommentController extends Controller
         $item = Item::findOrFail($id);
         $user = auth()->user();
 
-         // コメントの作成
-         $item->comments()->create([
+        // コメントの作成
+        $item->comments()->create([
             'user_id' => auth()->id(),  // ログイン中のユーザーIDを設定
             'comment' => $request->comment,
         ]);

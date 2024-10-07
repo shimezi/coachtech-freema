@@ -1,0 +1,153 @@
+/* アイテム詳細の全体スタイル */
+.item-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1512px; /* 共通の幅に揃える */
+    min-height: calc(100vh - 80px); /* ヘッダーの高さを引いた最低高さ */
+    margin: 0 auto; /* コンテンツを中央揃え */
+    padding: 0; /* 上下に余白を追加 */
+    background-color: #FFFFFF;
+}
+
+.item-image {
+    flex: 1; /* 左側に表示する画像エリア */
+    max-width: 451px; /* 幅を50%に制限 */
+    height: 548px;
+    padding-top: 159px;
+    margin-left: 194px;
+}
+
+.item-image img {
+    width: 100%; /* 画像をコンテナに合わせて表示 */
+    height: auto;
+    display: block;
+    border-radius: 5px; /* 画像の角を少し丸める */
+}
+
+.item-info {
+    flex: 2; /* 右側の情報エリアを広く */
+    padding-top: 159px;
+    padding-left: 209px; /* 左側に余白を設定 */
+}
+
+.item-info h1 {
+    max-width: 326px;
+    height: 66px;
+    margin-bottom: 15px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    line-height: 43.57px;
+}
+
+.item-info h2 {
+    max-width: 326px;
+    height: 66px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #000000;
+
+}
+
+.item-info p {
+    max-width: 125px;
+    height: 45px;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 29.05px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.item-info p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* 星と吹き出しアイコンを横並びにする */
+.like-comment-section {
+    display: flex;
+    align-items: center; /* アイコンと数字を中央揃え */
+    gap: 20px; /* アイコンの間にスペースを追加 */
+}
+
+.like-section, .comment-section {
+    display: flex;
+    align-items: center; /* アイコンと数字を中央揃え */
+}
+
+.like-section .like, .comment-section .comment-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.like-count, .comment-count {
+    margin-left: 5px; /* アイコンと数字の間に余白を追加 */
+    font-size: 16px;
+}
+
+
+.like-section button, .comment-section button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.like-count, .comment-count {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.comment-history {
+    margin-top: 20px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.purchase-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    max-width: 583px;
+    height: 79px;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.purchase-button:hover {
+    background-color: #FF3333;
+}
+
+.item-info .price-wrapper {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.item-info .category, .item-info .condition {
+    margin-bottom: 10px;
+}
+
+.item-info .category span, .item-info .condition span {
+    background-color: #ececec;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 14px;
+}
