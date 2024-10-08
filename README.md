@@ -1,5 +1,6 @@
 ## アプリケーション名
 coachtechフリマ。<br>
+![index](https://github.com/user-attachments/assets/fd7dbfdb-d309-41dc-bc5e-4694aa07e7f3)
 ある企業が開発した独自のフリマアプリ。
 ## 作成した目的
 coachtechブランドのアイテムを出品する。<br>
