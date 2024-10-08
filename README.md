@@ -24,9 +24,9 @@ https://github.com/shimezi/coachtech-freema
 商品コメント削除<br>
 出品<br>
 -- 以下追加項目 --<br>
-
-管理画面
-ストレージ
+管理画面<br>
+メール送信<br>
+ストレージ<br>
 
 ## 使用技術(実行環境)
 Laravel Framework 8.83.8<br>
@@ -36,5 +36,43 @@ MySQL 8.0.26
 ## ER図
 ![ER2](https://github.com/user-attachments/assets/39cf0b03-0dd7-4a77-9893-10123827f6aa)
 # 環境構築
+Dockerビルド<br>
+1.git clone git@github.com:shimezi/coachtech-freema.git<br>
+2.DockerDesktopアプリを立ち上げる<br>
+3.docker-compose up -d --build<br>
+<br>
+Laravel環境構築<br>
+1.docker-compose exec php bash<br>
+2.composer install<br>
+3.「.env.example」を 「.env」に名称変更。<br>
+4.「.env」の変更点は以下<br>
 
+DB_CONNECTION=mysql<br>
+DB_HOST=mysql DB_PORT=3306<br>
+DB_DATABASE=laravel_db<br>
+DB_USERNAME=laravel_user<br>
+DB_PASSWORD=laravel_pass<br>
+
+5.アプリケーションキーの作成<br>
+php artisan key:generate<br>
+6.マイグレーションの実行<br>
+php artisan migrate<br>
+7.シーディングの実行<br>
+php artisan db:seed<br>
+8.コントローラーの作成<br>
+php artisan make:controller<br>
+9.モデルの作成<br>
+php artisan make:model<br>
+10.リクエストファイルの作成<br>
+php artisan make:request<br>
+11.ビューファイルを作成<br>
+touch ○○.blade.php<br>
+12.cssファイルを作成<br>
+touch ○○.css
 ## 他に記載することがあれば記述する
+adminのページ
+localhost/admin/<br>
+管理者メールアドレス:admin@gmail.com<br>
+管理者パスワード:adminadmin<br>
+一般ユーザーメールアドレス:aaa@gmail.com<br>
+一般ユーザーメールアドレス:aaaaaaaa
