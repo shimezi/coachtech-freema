@@ -37,7 +37,9 @@ MySQL 8.0.26
 # 環境構築
 Dockerビルド
 
-1.git clone git@github.com:shimezi/coachtech-freema.git 2.DockerDesktopアプリを立ち上げる 3.docker-compose up -d --build
+1.git clone git@github.com:shimezi/coachtech-freema.git<br>
+2.DockerDesktopアプリを立ち上げる<br>
+3.docker-compose up -d --build<br>
 
 Laravel環境構築
 1.docker-compose exec php bash
