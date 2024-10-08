@@ -35,5 +35,35 @@ MySQL 8.0.26
 ## ER図
 ![ER2](https://github.com/user-attachments/assets/39cf0b03-0dd7-4a77-9893-10123827f6aa)
 # 環境構築
+Dockerビルド
 
+1.git clone git@github.com:shimezi/coachtech-freema.git 2.DockerDesktopアプリを立ち上げる 3.docker-compose up -d --build
+
+Laravel環境構築
+1.docker-compose exec php bash
+2.composer install
+3.「.env.example」を 「.env」に名称変更。
+4.「.env」の変更点は以下
+
+DB_CONNECTION=mysql DB_HOST=mysql DB_PORT=3306 DB_DATABASE=laravel_db DB_USERNAME=laravel_user DB_PASSWORD=laravel_pass
+
+5.アプリケーションキーの作成
+php artisan key:generate
+6.マイグレーションの実行
+php artisan migrate
+7.シーディングの実行
+php artisan db:seed
+8.コントローラーの作成
+php artisan make:controller
+9.モデルの作成
+php artisan make:model
+10.リクエストファイルの作成
+php artisan make:request
+11.ビューファイルを作成
+touch ○○.blade.php
+12.cssファイルを作成
+touch ○○.css
 ## 他に記載することがあれば記述する
+
+
+[def]: https://github.com/user-attachments/assets/39cf0b03-0dd7-4a77-9893-10123827f6aa
