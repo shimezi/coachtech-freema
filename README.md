@@ -34,6 +34,7 @@ PHP 7.4.9<br>
 MySQL 8.0.26
 ## テーブル設計
 ## ER図
+![ER2](https://github.com/user-attachments/assets/39cf0b03-0dd7-4a77-9893-10123827f6aa)
 # 環境構築
 
 ## 他に記載することがあれば記述する
