@@ -54,7 +54,7 @@
     line-height: 50px;
     border-radius: 10px;
     border: 2px solid #FF5555;
-    font-size: 16px;
+    font-size: 16px !important;
     font-weight: bold;
     text-decoration: none;
     margin-left: 20px; /* ボタンを少し右側に移動 */
@@ -174,4 +174,81 @@
 .pagination a:hover {
     background-color: #FF5555;
     color: white;
+}
+
+/* Profile form container */
+.profile-container {
+    max-width: 1512px; /* コンテナ全体の最大幅 */
+    margin: 0 auto; /* コンテナを中央に配置 */
+    padding: 0;
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 80px); /* ヘッダー分の高さを引いた最低高さ */
+    display: flex;
+    justify-content: center; /* 子要素を中央に配置 */
+    align-items: flex-start; /* 上方向に揃え */
+}
+
+/* Profile form */
+.profile-edit-form {
+    max-width: 680px; /* フォームの最大幅を680pxに制限 */
+    width: 100%; /* 幅は100%にして親の最大幅に依存 */
+    margin: 0 auto; /* フォームを中央に配置 */
+    padding: 20px; /* 内側の余白 */
+    background-color: #fff; /* 背景色を設定（必要に応じて） */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 見栄えを良くするための影 */
+}
+
+/* Form title */
+.profile-edit_title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700;
+    padding-top: 59px;
+}
+
+/* Form group styling */
+.profile-form_group {
+    display: flex;
+    flex-direction: column; /* 縦方向に要素を並べる */
+    gap: 1px; /* 要素間のスペース */
+    width: 100%; /* フォーム内の要素も幅を最大化 */
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+.profile-form_group label {
+    height: 36px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+/* Input fields */
+.profile-form_group input[type="text"],
+.profile-form_group input[type="file"] {
+    padding: 10px;
+    font-size: 24px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+}
+
+/* Submit button */
+.profile-edit_button {
+    background-color: #FF5555;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31.47px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 36px;
+}
+
+.profile-edit_button:hover {
+    background-color: #FFFFFF; /* 背景色を白に */
+    color: #FF5555; /* 文字色を元のボタン色に */
+    border: 1px solid #FF5555; /* ボタンの枠をそのまま維持 */
 }

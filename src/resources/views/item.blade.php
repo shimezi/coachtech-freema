@@ -13,28 +13,32 @@
             </div>
 
             <div class="item-info">
-                <h1>{{ $item->name }}</h1>
+                <h1>商品名</h1>
+                <p>{{ $item->name }}</p>
                 <h2>￥{{ number_format($item->price) }}（値段）</h2>
 
-                <!-- いいね機能 -->
-                <div class="like-section">
-                    <form action="{{ route('item.like', ['id' => $item->id]) }}" method="POST">
-                        @csrf
-                        @if (auth()->check() && $item->likes->contains('user_id', auth()->user()->id))
-                            <button type="submit" class="like"><i class="fa-solid fa-star"></i></button>
-                        @else
-                            <button type="submit" class="like"><i class="fa-regular fa-star"></i></button>
-                        @endif
-                    </form>
-                    <p class="like-count">{{ $item->likes_count }}</p>
-                </div>
+                <!-- いいね機能とコメント機能を横並びにするための親要素を追加 -->
+                <div class="like_comment-section"> <!-- 親要素追加 -->
+                    <!-- いいね機能 -->
+                    <div class="like-section">
+                        <form action="{{ route('item.like', ['id' => $item->id]) }}" method="POST">
+                            @csrf
+                            @if (auth()->check() && $item->likes->contains('user_id', auth()->user()->id))
+                                <button type="submit" class="like"><i class="fa-solid fa-star"></i></button>
+                            @else
+                                <button type="submit" class="like"><i class="fa-regular fa-star"></i></button>
+                            @endif
+                        </form>
+                        <p class="like-count">{{ $item->likes_count }}</p>
+                    </div>
 
-                <!-- コメントアイコンとコメント数 -->
-                <div class="comment-section">
-                    <a href="{{ route('item.comments', ['id' => $item->id]) }}" class="comment-button">
-                        <i class="fa-regular fa-comment"></i>
-                    </a>
-                    <p class="comment-count">{{ $item->comments_count }}</p>
+                    <!-- コメントアイコンとコメント数 -->
+                    <div class="comment-section">
+                        <a href="{{ route('item.comments', ['id' => $item->id]) }}" class="comment-button">
+                            <i class="fa-regular fa-comment"></i>
+                        </a>
+                        <p class="comment-count">{{ $item->comments_count }}</p>
+                    </div>
                 </div>
 
                 <!-- 購入ボタン -->
@@ -72,7 +76,7 @@
             <div class="comment-history">
                 @foreach ($item->comments as $comment)
                     <div class="comment">
-                        <p><strong>{{ $comment->user ? $comment->user->name : 'ゲストユーザー' }}</strong>さんのコメント</p>
+                        <p><strong>{{ $comment->user->name }}</strong>さんのコメント</p>
                         <p>{{ $comment->comment }}</p>
                     </div>
                 @endforeach

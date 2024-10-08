@@ -7,10 +7,8 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Requests\AdminRegisterRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\UserNotificationMail;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------

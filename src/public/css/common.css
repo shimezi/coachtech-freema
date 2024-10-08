@@ -159,7 +159,7 @@ button, a {
 }
 
 .sell-button {
-    max-width: 100px;
+    width: 100px;
     height: 50px;
     background-color: #FFFFFF;
     color: #000000;
