@@ -33,6 +33,9 @@ Laravel Framework 8.83.8<br>
 PHP 7.4.9<br>
 MySQL 8.0.26
 ## テーブル設計
+![スクリーンショット 2024-10-08 210641](https://github.com/user-attachments/assets/972e9702-75a7-4260-84fe-e62f9dfd76a4)
+![スクリーンショット 2024-10-08 210658](https://github.com/user-attachments/assets/002354d4-55cf-44e7-92af-481cea455ac5)
+![スクリーンショット 2024-10-08 210710](https://github.com/user-attachments/assets/4e026825-3457-469b-8b6d-f7b403189747)
 ## ER図
 ![ER2](https://github.com/user-attachments/assets/39cf0b03-0dd7-4a77-9893-10123827f6aa)
 # 環境構築
