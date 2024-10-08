@@ -1,21 +1,18 @@
 .index-container {
-    max-width: 1512px; /* 共通の幅に揃える */
-    min-height: calc(100vh - 80px); /* ヘッダーの高さを引いた最低高さ */
-    margin: 0 auto; /* コンテンツを中央揃え */
-    padding: 0; /* 上下に余白を追加 */
+    max-width: 1512px;
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    padding: 0;
     background-color: #FFFFFF;
 }
 
-/* タブ部分のスタイル */
-/* タブ全体のスタイル */
 .tabs {
-    position: relative; /* 相対的な位置を指定 */
-    top: 52px; /* 132px - ヘッダー80px */
-    left: 147px; /* 左の位置を指定 */
+    position: relative;
+    top: 52px;
+    left: 147px;
     padding-bottom: 10px;
 }
 
-/* 左のタブのスタイル */
 .tab-left {
     width: 155px;
     height: 40px;
@@ -25,13 +22,12 @@
     text-align: left;
 }
 
-/* 右のタブのスタイル */
 .tab-right {
     font-size: 24px;
     font-weight: 700;
     line-height: 29.05px;
     text-align: left;
-    margin-left: 10px; /* 左のタブからの間隔を指定 */
+    margin-left: 10px;
 }
 
 .tab-links {
@@ -39,7 +35,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 20px; /* タブ間の隙間 */
+    gap: 20px;
 }
 
 .tab-links li {
@@ -56,10 +52,9 @@
 }
 
 .tab-links .active a {
-    color: #FF0000; /* アクティブなタブの文字色 */
+    color: #FF0000;
 }
 
-/* タブとアイテムリストの境界線 */
 .tab-line {
     height: 2px;
     background-color: #5F5F5F;
@@ -69,12 +64,12 @@
 
 .item {
     display: grid;
-    grid-template-columns: repeat(5, 200px); /* 1行に5つのアイテムを並べる */
-    grid-template-rows: repeat(2, 200px); /* 2行のアイテム */
-    column-gap: 77px; /* 横の間隔（列の間隔） */
-    row-gap: 105px; /* 縦の間隔（行の間隔） */
-    justify-content: center; /* アイテムを中央揃え */
-    margin: 64px auto 0 auto; /* 上に64pxの余白、中央揃え */
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(2, 200px);
+    column-gap: 77px;
+    row-gap: 105px;
+    justify-content: center;
+    margin: 64px auto 0 auto;
 }
 
 .thumbnail {
@@ -86,7 +81,7 @@
 .thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像がサムネイルに収まるように調整 */
+    object-fit: cover;
 }
 
 .thumbnail p {
@@ -95,12 +90,11 @@
     color: #666;
 }
 
-/* ページネーションリンクを中央揃え */
 .pagination {
     display: flex;
     justify-content: center;
     padding: 10px;
-    margin-top: 90px; /* コンテンツとページネーションの間に余白 */
+    margin-top: 90px;
 }
 
 .pagination li {
@@ -110,15 +104,15 @@
 
 .pagination a {
     text-decoration: none;
-    font-size: 24px; /* フォントサイズを調整 */
-    font-weight: 400; /* フォントの太さを調整 */
-    color: #FF0000; /* テキストの色 */
+    font-size: 24px;
+    font-weight: 400;
+    color: #FF0000;
     padding: 5px 10px;
-    border: 1px solid #ddd; /* ボーダーを追加して見やすく */
-    border-radius: 5px; /* 角を丸める */
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .pagination a:hover {
-    background-color: #f0f0f0; /* ホバー時の背景色 */
-    border-color: #bbb; /* ホバー時のボーダー色 */
+    background-color: #f0f0f0;
+    border-color: #bbb;
 }

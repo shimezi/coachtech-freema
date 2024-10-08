@@ -19,10 +19,11 @@
             {{-- 
             <p>支払い方法</p>
             <a href="{{ route('purchase.payment', ['id' => $item->id]) }}">変更する</a>
+            --}}
             <br>
             <p>配送先</p>
             <a href="{{ route('purchase.address', ['id' => $item->id]) }}">変更する</a>
-            --}}
+            
             <!-- 購入ボタン -->
             <form action="{{ route('purchase.store', ['id' => $item->id]) }}" method="POST">
                 @csrf

@@ -17,20 +17,21 @@
                 </li>
             </ul>
         </div>
-        <!-- タブとアイテムの境界線 -->
+
         <div class="tab-line"></div>
+
         <div class="item">
             @foreach ($items as $item)
                 <div class="thumbnail">
                     <a href="{{ route('item.show', ['id' => $item->id]) }}">
                         <img src="{{ asset('storage/items/' . basename($item->img_url)) }}" alt="">
                     </a>
-                    <!-- item_id を表示 -->
+
                     <p>ID: {{ $item->id }}</p>
                 </div>
             @endforeach
         </div>
-        <!-- ページネーションリンク -->
+        
         {{ $items->links() }}
     </div>
 @endsection

@@ -35,19 +35,19 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => '',
-            'name.string' => '',
-            'name.max' => '',
-            'img_url.mimes' => '',
-            'img_url.max' => '',
-            'postcode.required' => '',
-            'postcode.string' => '',
-            'postcode.max' => '',
-            'address.required' => '',
-            'address.string' => '',
-            'address.max' => '',
-            'building.string' => '',
-            'building.max' => '',
+            'name.required' => '名前を入力してください。',
+            'name.string' => '名前は文字列で入力してください。',
+            'name.max' => '名前は255文字以下で入力してください。',
+            'img_url.mimes' => '画像はjpeg、png、jpg、gif形式でアップロードしてください。',
+            'img_url.max' => '画像のサイズは2MB以下にしてください。',
+            'postcode.required' => '郵便番号を入力してください。',
+            'postcode.string' => '郵便番号は文字列で入力してください。',
+            'postcode.max' => '郵便番号は8文字以内で入力してください。',
+            'address.required' => '住所を入力してください。',
+            'address.string' => '住所は文字列で入力してください。',
+            'address.max' => '住所は255文字以内で入力してください。',
+            'building.string' => '建物名は文字列で入力してください。',
+            'building.max' => '建物名は255文字以内で入力してください。',
         ];
     }
 }

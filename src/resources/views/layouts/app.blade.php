@@ -24,18 +24,31 @@
                     <input type="text" placeholder="なにをお探しですか？">
                 </form>
 
-
                 @auth
-                    <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                        @csrf
-                        <button type="submit" class="logout-button">ログアウト</button>
-                    </form>
-                    <a href="{{ route('mypage') }}" class="mypage-button">マイページ</a>
+                    @if (!request()->routeIs('login') && !request()->routeIs('register'))
+                        <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                            @csrf
+                            <button type="submit" class="logout-button">ログアウト</button>
+                        </form>
+                        <a href="{{ route('mypage') }}" class="mypage-button">マイページ</a>
+                    @else
+                        <!-- ログインページや登録ページで非表示に -->
+                        <form class="logout-form" style="visibility: hidden;">
+                            <button class="logout-button">ログアウト</button>
+                        </form>
+                        <a href="#" class="mypage-button" style="visibility: hidden;">マイページ</a>
+                    @endif
                 @endauth
 
                 @guest
-                    <a href="{{ route('login') }}" class="login-button">ログイン</a>
-                    <a href="{{ route('register') }}" class="register-button">会員登録</a>
+                    @if (!request()->routeIs('login') && !request()->routeIs('register'))
+                        <a href="{{ route('login') }}" class="login-button">ログイン</a>
+                        <a href="{{ route('register') }}" class="register-button">会員登録</a>
+                    @else
+                        <!-- ログインページや登録ページで非表示に -->
+                        <a href="#" class="login-button" style="visibility: hidden;">ログイン</a>
+                        <a href="#" class="register-button" style="visibility: hidden;">会員登録</a>
+                    @endif
                 @endguest
 
                 <a href="{{ route('sell.create') }}" class="sell-button">出品</a>

@@ -14,7 +14,8 @@
                 <!-- プロフィール画像 -->
                 <div class="user_icon">
                     @if ($profile && $profile->img_url)
-                        <img src="{{ asset('storage/' . $profile->img_url) }}" alt="" style="width: 100px; height: 100px;">
+                        <img src="{{ asset('storage/' . $profile->img_url) }}" alt=""
+                            style="width: 100px; height: 100px;">
                     @else
                         <img src="{{ asset('image/default-user.png') }}" alt="デフォルト画像" style="width: 100px; height: 100px;">
                     @endif
@@ -77,33 +78,35 @@
     @elseif (request()->routeIs('profile.edit'))
         <!-- プロフィール編集フォームの表示部分 -->
         <div class="profile-container">
-            <div id="profile_edit-form">
-                <h1 class="profile-edit_title">プロフィール設定</h1>
-                <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="profile-form_group">
-                        <label for="img_url">プロフィール画像</label>
-                        <input type="file" id="img_url" name="img_url" accept="image/*">
-                    </div>
-                    <div class="profile-form_group">
-                        <label for="name">名前</label>
-                        <input type="text" id="name" name="name" value="{{ $profile->name ?? '' }}" required>
-                    </div>
-                    <div class="profile-form_group">
-                        <label for="postcode">郵便番号</label>
-                        <input type="text" id="postcode" name="postcode" value="{{ $profile->postcode ?? '' }}" required>
-                    </div>
-                    <div class="profile-form_group">
-                        <label for="address">住所</label>
-                        <input type="text" id="address" name="address" value="{{ $profile->address ?? '' }}" required>
-                    </div>
-                    <div class="profile-form_group">
-                        <label for="building">建物名</label>
-                        <input type="text" id="building" name="building" value="{{ $profile->building ?? '' }}">
-                    </div>
-                    <button type="submit" class="profile-edit_button">更新する</button>
-                </form>
-            </div>
+            <h1 class="profile-edit_title">プロフィール設定</h1>
+    <!-- プロフィール画像とボタンをまとめたコンテナ -->
+    <div class="profile-image-container">
+        <div class="profile-image-preview">
+            <img src="path_to_profile_image" alt="">
+        </div>
+        <input type="file" id="img_url" name="img_url" accept="image/*" class="profile-image-button">
+    </div>
+            <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="profile-form_group">
+                    <label for="name">名前</label>
+                    <input type="text" id="name" name="name" value="{{ $profile->name ?? '' }}" required>
+                </div>
+                <div class="profile-form_group">
+                    <label for="postcode">郵便番号</label>
+                    <input type="text" id="postcode" name="postcode" value="{{ $profile->postcode ?? '' }}" required>
+                </div>
+                <div class="profile-form_group">
+                    <label for="address">住所</label>
+                    <input type="text" id="address" name="address" value="{{ $profile->address ?? '' }}" required>
+                </div>
+                <div class="profile-form_group">
+                    <label for="building">建物名</label>
+                    <input type="text" id="building" name="building" value="{{ $profile->building ?? '' }}">
+                </div>
+                <button type="submit" class="profile-edit_button">更新する</button>
+            </form>
+        </div>
         </div>
     @endif
 @endsection

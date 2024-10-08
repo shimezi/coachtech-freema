@@ -28,7 +28,11 @@ https://github.com/shimezi/coachtech-freema
 ストレージ
 
 ## 使用技術(実行環境)
+Laravel Framework 8.83.8<br>
+PHP 7.4.9<br>
+MySQL 8.0.26
 ## テーブル設計
 ## ER図
 # 環境構築
+
 ## 他に記載することがあれば記述する
